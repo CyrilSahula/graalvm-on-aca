@@ -15,6 +15,14 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "myTFResourceGroup"
-  location = "westus2"
+  name     = "rg-graalvmonaca-sendbox"
+  location = "westeurope"
+}
+
+resource "azurerm_container_registry" "acr" {
+  name                = "crgraalvmonacawe"
+  resource_group_name = "rg-graalvmonaca-sendbox"
+  location            = "westeurope"
+  sku                 = "Basic"
+  admin_enabled       = true
 }
