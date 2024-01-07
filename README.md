@@ -77,6 +77,12 @@ $ ./gradlew nativeTest
 
 1. Get Azure cloud account if you do not have. [Free account](https://azure.microsoft.com/en-us/free) is enough. 
 2. Install Terraform for Azure cloud by fallowing this official [tutorial](https://developer.hashicorp.com/terraform/tutorials/azure-get-started).
+3. Go to IAC `cd ./iac`
+4. Build it: `terraform apply`
+
+### Removing infrastructure
+
+Log into az and run `terraform destroy`
 
 
 
