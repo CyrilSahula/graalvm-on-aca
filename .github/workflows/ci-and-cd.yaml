@@ -15,10 +15,10 @@ jobs:
           java-version: '21'
           distribution: 'graalvm' # See 'Options' for all available distributions
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          cache-disabled: true
+#      - name: Setup Gradle
+#        uses: gradle/gradle-build-action@v2
+#        with:
+#          cache-disabled: true
       - name: Environment setting
         run: |
           echo "GRAALVM_HOME: $GRAALVM_HOME"
@@ -26,4 +26,4 @@ jobs:
           java --version
           native-image --version
       - name: Compile application
-        run: ./gradlew nativeCompile --parallel --no-daemon
+        run: ./gradlew nativeCompile --no-daemon
