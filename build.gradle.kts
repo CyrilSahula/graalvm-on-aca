@@ -12,7 +12,7 @@ group = "me.sahula"
 version = "0.0.1-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
 }
 
 repositories {
@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
@@ -28,10 +28,14 @@ dependencies {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"
-        jvmTarget = "17"
+        jvmTarget = "21"
     }
 }
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+graalvmNative {
+    testSupport = false
 }

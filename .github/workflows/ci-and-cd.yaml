@@ -1,0 +1,25 @@
+name: CI&CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '21'
+          distribution: 'graalvm' # See 'Options' for all available distributions
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Environment setting
+        run: |
+          echo "GRAALVM_HOME: $GRAALVM_HOME"
+          echo "JAVA_HOME: $JAVA_HOME"
+          java --version
+          native-image --version
+      - name: Compile application
+        run: gradlew nativeCompile
