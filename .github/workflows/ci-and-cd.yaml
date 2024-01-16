@@ -26,4 +26,4 @@ jobs:
           java --version
           native-image --version
       - name: Compile application
-        run: ./gradlew nativeCompile --parallel
+        run: ./gradlew nativeCompile --parallel --no-daemon
