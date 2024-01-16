@@ -6,7 +6,8 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
+    name: Build and deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -40,4 +41,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: cyrilsahula2/graalvm-on-aca:2
+          tags: cyrilsahula2/graalvm-on-aca:3
