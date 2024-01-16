@@ -18,7 +18,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          cache-read-only: false
+          cache-disabled: true
       - name: Environment setting
         run: |
           echo "GRAALVM_HOME: $GRAALVM_HOME"
@@ -26,4 +26,4 @@ jobs:
           java --version
           native-image --version
       - name: Compile application
-        run: ./gradlew nativeCompile
+        run: ./gradlew nativeCompile --parallel
