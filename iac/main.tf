@@ -21,14 +21,6 @@ resource "azurerm_resource_group" "graalvmonaca_rg" {
   location = "westeurope"
 }
 
-resource "azurerm_container_registry" "acr" {
-  name                = "crgraalvmonacawe"
-  resource_group_name = "rg-graalvmonaca-sendbox"
-  location            = "westeurope"
-  sku                 = "Basic"
-  admin_enabled       = true
-}
-
 resource "azurerm_container_app_environment" "graalvmonaca_cae" {
   name      = "cae-graalvmonaca-we"
   location  = "westeurope"
@@ -44,7 +36,7 @@ resource "azurerm_container_app" "graalvmonaca_ca" {
   template {
     container {
       name   = "graalvmonaca"
-      image  = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
+      image  = "cyrilsahula2/graalvm-on-aca:latest"
       cpu    = 0.25
       memory = "0.5Gi"
     }
