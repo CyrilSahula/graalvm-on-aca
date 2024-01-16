@@ -36,7 +36,7 @@ resource "azurerm_container_app" "graalvmonaca_ca" {
   template {
     container {
       name   = "graalvmonaca"
-      image  = "cyrilsahula2/graalvm-on-aca:latest"
+      image  = "cyrilsahula2/graalvm-on-aca:2"
       cpu    = 0.25
       memory = "0.5Gi"
     }

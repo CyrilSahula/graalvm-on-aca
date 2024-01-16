@@ -1,3 +1,3 @@
-FROM --platform=linux/amd64 alpine:latest
+FROM alpine:latest
 COPY build/native/nativeCompile/graalvm-on-aca /app
 ENTRYPOINT ["/app"]
