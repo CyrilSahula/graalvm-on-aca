@@ -1,3 +1,3 @@
-FROM scratch
-COPY build/native/nativeCompile/hello /hello
+FROM ubuntu:jammy
+COPY build/native/nativeCompile/hello /
 ENTRYPOINT ["/hello"]
