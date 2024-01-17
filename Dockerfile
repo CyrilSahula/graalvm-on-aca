@@ -1,3 +1,3 @@
-FROM openjdk:21-jdk-slim
-COPY build/native/nativeCompile/graalvm-on-aca /graalvm-on-aca
+FROM scratch
+COPY build/native/nativeCompile/graalvm-on-aca /
 ENTRYPOINT ["/graalvm-on-aca"]
