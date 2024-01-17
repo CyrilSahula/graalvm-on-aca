@@ -38,6 +38,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./
+          context: .
           push: true
-          tags: cyrilsahula2/graalvm-on-aca:4
+          tags: cyrilsahula2/graalvm-on-aca:latest
