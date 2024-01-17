@@ -42,3 +42,19 @@ resource "azurerm_container_app" "graalvmonaca_ca" {
     }
   }
 }
+
+resource "azurerm_container_app" "verify_ca" {
+  name                         = "verify"
+  container_app_environment_id = azurerm_container_app_environment.graalvmonaca_cae.id
+  resource_group_name          = azurerm_resource_group.graalvmonaca_rg.name
+  revision_mode                = "Single"
+
+  template {
+    container {
+      name   = "verify"
+      image  = "cyrilsahula2/graalvm-on-aca:3"
+      cpu    = 0.5
+      memory = "0.8Gi"
+    }
+  }
+}
