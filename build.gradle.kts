@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -38,4 +39,9 @@ tasks.withType<Test> {
 
 graalvmNative {
     testSupport = false
+    binaries {
+        named("main") {
+            imageName.set("hello")
+        }
+    }
 }
