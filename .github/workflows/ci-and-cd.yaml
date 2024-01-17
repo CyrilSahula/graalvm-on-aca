@@ -18,8 +18,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-        with:
-          cache-disabled: true
+#        with:
+#          cache-disabled: true
       - name: Environment setting
         run: |
           echo "GRAALVM_HOME: $GRAALVM_HOME"
@@ -27,7 +27,7 @@ jobs:
           java --version
           native-image --version
       - name: Compile application
-        run: ./gradlew nativeCompile --no-daemon
+        run: ./gradlew nativeCompile
 
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
