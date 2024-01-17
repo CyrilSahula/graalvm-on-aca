@@ -1,3 +1,3 @@
 FROM scratch
-COPY build/native/nativeCompile/hello /
-CMD ["/hello"]
+COPY build/native/nativeCompile/graalvm-on-aca /app
+ENTRYPOINT ["/app"]
