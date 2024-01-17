@@ -1,88 +1,35 @@
-# Getting Started
-
-### Reference Documentation
-
-For further reference, please consider the following sections:
-
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.2.1/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.1/gradle-plugin/reference/html/#build-image)
-* [GraalVM Native Image Support](https://docs.spring.io/spring-boot/docs/3.2.1/reference/html/native-image.html#native-image)
-
-### Additional Links
-
-These additional references should also help you:
-
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
-* [Configure AOT settings in Build Plugin](https://docs.spring.io/spring-boot/docs/3.2.1/gradle-plugin/reference/htmlsingle/#aot)
-
-## GraalVM Native Support
-
-This project has been configured to let you generate either a lightweight container or a native executable.
-It is also possible to run your tests in a native image.
-
-### Lightweight Container with Cloud Native Buildpacks
-
-If you're already familiar with Spring Boot container images support, this is the easiest way to get started.
-Docker should be installed and configured on your machine prior to creating the image.
-
-To create the image, run the following goal:
-
-```
-$ ./gradlew bootBuildImage
-```
-
-Then, you can run the app like any other container:
-
-```
-$ docker run --rm graalvm-on-aca:0.0.1-SNAPSHOT
-```
-
-### Executable with Native Build Tools
-
-Use this option if you want to explore more options such as running your tests in a native image.
-The GraalVM `native-image` compiler should be installed and configured on your machine.
-
-NOTE: GraalVM 22.3+ is required.
-
-To create the executable, run the following goal:
-
-```
-$ ./gradlew nativeCompile
-```
-
-Then, you can run the app as follows:
-
-```
-$ build/native/nativeCompile/graalvm-on-aca
-```
-
-You can also run your existing tests suite in a native image.
-This is an efficient way to validate the compatibility of your application.
-
-To run your existing tests in a native image, run the following goal:
-
-```
-$ ./gradlew nativeTest
-```
+# Demo Kotlin/Spring GraalVM container deployed on Azure Container App
 
 ### Dependencies
 
-1. Java 17
-2. Terraform
-3. Azure CLI
-4. Free Azure cloud account
+* [SdkMan](https://sdkman.io) 
+* Java 21 GraalVM edition installed by SdkMan
+* Docker
+* Docker Hub repository
+* Terraform
+* Free Azure cloud account
 
-### Building infrastructure
+### How to build & run docker locally
 
-1. Get Azure cloud account if you do not have. [Free account](https://azure.microsoft.com/en-us/free) is enough. 
+[!IMPORTANT]
+There can be issues to build on some OS like MacOS AARM etc.
+
+1. Compile code to native: ``` $ ./gradlew nativeCompile ```
+2. You can run it locally without docker: ```./build/native/nativeCompile/graalvm-on-aca```
+3. Build docker image: ```docker build -t graalvm-on-aca:latest .```
+4. Run docker image: ```docker run --rm -p 8080:8080 graalvm-on-aca:latest```
+
+### How to build infrastructure
+
+1. Get Azure cloud account if you do not have. [Free account](https://azure.microsoft.com/en-us/free) is enough.
 2. Install Terraform for Azure cloud by fallowing this official [tutorial](https://developer.hashicorp.com/terraform/tutorials/azure-get-started).
 3. Go to IAC `cd ./iac`
 4. Build it: `terraform apply`
 
+### How to deploy to infrastructure
+
+TODO
+
 ### Removing infrastructure
 
 Log into az and run `terraform destroy`
-
-
-
