@@ -40,4 +40,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: cyrilsahula2/graalvm-on-aca:7
+          tags: cyrilsahula2/graalvm-on-aca:8
