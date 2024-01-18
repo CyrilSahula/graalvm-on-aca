@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM scratch
 EXPOSE 80
 COPY build/native/nativeCompile/hello /
 CMD ["/hello", "-Dserver.port=80"]
