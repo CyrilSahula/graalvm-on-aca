@@ -39,9 +39,9 @@ tasks.withType<Test> {
 
 graalvmNative {
     testSupport = false
-    binaries {
-        named("main") {
-            imageName.set("hello")
-        }
-    }
+//    binaries {
+//        named("main") {
+//            imageName.set("hello")
+//        }
+//    }
 }
