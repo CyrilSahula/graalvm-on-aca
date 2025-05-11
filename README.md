@@ -1,4 +1,10 @@
-# Demo Kotlin/Spring GraalVM container deployed on Azure Container App
+# Demo Kotlin/Spring GraalVM container deployed on Azure Container App with KEDA
+
+The purpose of the project was to test a cold start of the GraalVM container on Azure Container App with KEDA and find our how scalling works and if it is possible to use it for GraphQL API.
+
+### Conclusion
+
+The cold start is too slow to use it for GraphQL API. The time to start the container is around 20 seconds. The scaling works well and the container can be scaled to 0.
 
 ### Dependencies
 
@@ -22,13 +28,13 @@ There can be issues to build on some OS like MacOS AARM etc.
 ### How to build infrastructure
 
 1. Get Azure cloud account if you do not have. [Free account](https://azure.microsoft.com/en-us/free) is enough.
-2. Install Terraform for Azure cloud by fallowing this official [tutorial](https://developer.hashicorp.com/terraform/tutorials/azure-get-started).
+2. Install Terraform for Azure cloud by following this official [tutorial](https://developer.hashicorp.com/terraform/tutorials/azure-get-started).
 3. Go to IAC `cd ./iac`
 4. Build it: `terraform apply`
 
 ### How to deploy to infrastructure
 
-TODO
+The basic CI&CD pipeline attached: ```./github/workflows/ci-and-cd.yaml``` which deploys container to Azure Container App.
 
 ### Removing infrastructure
 

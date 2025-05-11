@@ -40,5 +40,16 @@ resource "azurerm_container_app" "graalvmonaca_ca" {
       cpu    = 0.25
       memory = "0.5Gi"
     }
+    min_replicas = 0
+    max_replicas = 5
+  }
+  ingress {
+    external_enabled           = true
+    target_port                = 80
+    allow_insecure_connections = true
+    traffic_weight {
+      percentage      = 100
+      latest_revision = true
+    }
   }
 }
